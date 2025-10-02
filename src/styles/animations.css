@@ -1,0 +1,408 @@
+/* Animations and Transitions
+ * This file defines reusable animations, transitions, and micro-interactions
+ */
+
+/* Base transition settings */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--duration-normal);
+}
+
+.transition-transform {
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--duration-normal);
+}
+
+.transition-opacity {
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--duration-normal);
+}
+
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--duration-normal);
+}
+
+/* Duration variations */
+.duration-75 {
+    transition-duration: 75ms;
+}
+
+.duration-100 {
+    transition-duration: 100ms;
+}
+
+.duration-150 {
+    transition-duration: 150ms;
+}
+
+.duration-200 {
+    transition-duration: 200ms;
+}
+
+.duration-300 {
+    transition-duration: 300ms;
+}
+
+.duration-500 {
+    transition-duration: 500ms;
+}
+
+.duration-700 {
+    transition-duration: 700ms;
+}
+
+.duration-1000 {
+    transition-duration: 1000ms;
+}
+
+/* Timing functions */
+.ease-linear {
+    transition-timing-function: linear;
+}
+
+.ease-in {
+    transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ease-out {
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ping {
+
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Animation classes */
+.animate-fade-in {
+    animation: fadeIn var(--duration-normal) ease-out forwards;
+}
+
+.animate-fade-out {
+    animation: fadeOut var(--duration-normal) ease-in forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInFromRight var(--duration-normal) ease-out forwards;
+}
+
+.animate-slide-in-left {
+    animation: slideInFromLeft var(--duration-normal) ease-out forwards;
+}
+
+.animate-slide-in-top {
+    animation: slideInFromTop var(--duration-normal) ease-out forwards;
+}
+
+.animate-slide-in-bottom {
+    animation: slideInFromBottom var(--duration-normal) ease-out forwards;
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+.animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Staggered animations for list items */
+.stagger-items>* {
+    opacity: 0;
+    animation: fadeIn var(--duration-normal) ease-out forwards;
+}
+
+.stagger-items>*:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.stagger-items>*:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+.stagger-items>*:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+.stagger-items>*:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+.stagger-items>*:nth-child(5) {
+    animation-delay: 200ms;
+}
+
+.stagger-items>*:nth-child(6) {
+    animation-delay: 250ms;
+}
+
+.stagger-items>*:nth-child(7) {
+    animation-delay: 300ms;
+}
+
+.stagger-items>*:nth-child(8) {
+    animation-delay: 350ms;
+}
+
+.stagger-items>*:nth-child(9) {
+    animation-delay: 400ms;
+}
+
+.stagger-items>*:nth-child(10) {
+    animation-delay: 450ms;
+}
+
+/* Hover animations */
+.hover-grow {
+    transition: transform var(--duration-fast);
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift {
+    transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.hover-bright {
+    transition: filter var(--duration-fast);
+}
+
+.hover-bright:hover {
+    filter: brightness(1.1);
+}
+
+/* Loading shimmer effect for skeleton placeholders */
+.shimmer {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 20%,
+            rgba(255, 255, 255, 0.5) 60%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Button press effect */
+.press-effect {
+    transition: transform var(--duration-fast);
+}
+
+.press-effect:active {
+    transform: scale(0.97);
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Tilt effect on hover */
+.hover-tilt {
+    transition: transform var(--duration-normal);
+    transform-style: preserve-3d;
+}
+
+.hover-tilt:hover {
+    transform: perspective(500px) rotateX(2deg) rotateY(-5deg);
+}
+
+/* Ripple effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 0.8s;
+}
+
+.ripple:active::after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Focus ring animation */
+@keyframes focusRing {
+    0% {
+        box-shadow: 0 0 0 0px var(--color-primary-soft);
+    }
+
+    100% {
+        box-shadow: 0 0 0 4px var(--color-primary-soft);
+    }
+}
+
+.focus-ring:focus {
+    outline: none;
+    animation: focusRing 0.3s ease-in-out forwards;
+}
