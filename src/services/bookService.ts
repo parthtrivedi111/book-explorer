@@ -8,7 +8,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes cache
 
 // API Key support (optional - increases rate limits significantly)
 // To use: Set environment variable VITE_GOOGLE_BOOKS_API_KEY
-const API_KEY = 'AIzaSyDaui36LfyB_Djr25R_QbAPx3YpN0PA5tM';
+const API_KEY = 'AIzaSyAbBx1oUJBx-A6OblyE1OPEzFA4wy0tNTA';
 
 // Simple in-memory cache to prevent duplicate requests
 interface CacheEntry {

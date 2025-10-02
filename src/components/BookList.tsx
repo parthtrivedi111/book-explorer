@@ -7,10 +7,10 @@ interface BookListProps {
     books: Book[];
     loading: boolean;
     error: string | null;
-    totalItems: number;
+    totalItems?: number;
 }
 
-const BookList = ({ books, loading, error, totalItems }: BookListProps) => {
+const BookList = ({ books, loading, error }: BookListProps) => {
 
     if (loading) {
         return (
@@ -62,11 +62,11 @@ const BookList = ({ books, loading, error, totalItems }: BookListProps) => {
     return (
         <div className="book-list-wrapper animate-fade-in">
             {/* Results count */}
-            <div className="results-info">
+            {/* <div className="results-info">
                 <p>
                     Found <strong>{books.length}</strong> of <strong>{totalItems.toLocaleString()}</strong> results
                 </p>
-            </div>
+            </div> */}
 
             <div className="book-list stagger-items">
                 {books.map((book) => (

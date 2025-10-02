@@ -21,7 +21,7 @@ const HomePage = () => {
     const [error, setError] = useState<string | null>(null);
     const [hasSearched, setHasSearched] = useState(false);
     const [initialParams, setInitialParams] = useState<SearchParams | null>(null);
-    const debounceTimerRef = useRef<number | null>(null);
+    const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
     const lastSearchRef = useRef<string>('');
     const isRestoredRef = useRef(false);
 
